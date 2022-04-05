@@ -1,0 +1,7 @@
+{
+		//python3
+		"python.pythonPath": "python3.8",
+		"python.venvPath": "~/miniconda3/envs",
+		//jedi
+		"python.jediPath": "~/miniconda3/envs/alpha/lib/python3.8/site-packages"
+}

@@ -1,3 +1,4 @@
+let g:python3_host_prog="~/miniconda3/envs/alpha/bin/python3.8"
 let mapleader=" "
 syntax on
 set number
@@ -9,13 +10,17 @@ set wildmenu
 set hlsearch
 exec "nohlsearch"
 set incsearch
+nnoremap <leader>b oimport ipdb;ipdb.set_trace()<esc>
 map s <nop>
 map S :w<CR>
+map <leader>l $
+map <leader>h 0
 map Q :q<CR>
 map R :source $MYVIMRC<CR>
 map vs :set splitright<CR>:vsplit<CR>
-map <c-l> <C-w>l
-map <c-h> <C-w>h
+map sp :set splitbelow<CR>:split<CR>
+"map <c-l> <C-w>l
+"map <c-h> <C-w>h
 map <left> :vertical resize-5<CR>
 map <right> :vertical resize+5<CR>
 map tu :tabe<CR>
@@ -28,12 +33,24 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdcommenter'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
+" Configuration example
+let g:floaterm_keymap_new    = '<leader>t'
+map <leader>r :FloatermNew ranger<CR> 
+map <leader>g :FloatermNew lazygit<CR> 
+map <leader>d :FloatermNew ipython %<CR> 
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keymap_toggle = '<leader>w'
+let g:floaterm_keymap_kill = '<leader>c'
 color snazzy
 let g:SnazzyTransparent = 1
 map <c-p> :Files<CR>
 nnoremap tt :NERDTree<CR>
-" coc config
+"kcoc config
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
