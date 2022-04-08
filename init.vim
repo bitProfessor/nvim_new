@@ -36,7 +36,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'voldikss/vim-floaterm'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
+let g:floaterm_width = 0.99
+let g:floaterm_height = 0.99
+let g:EasyMotion_smartcase = 1
+nmap f <Plug>(easymotion-s)
 " Configuration example
 let g:floaterm_keymap_new    = '<leader>t'
 map <leader>r :FloatermNew ranger<CR> 
