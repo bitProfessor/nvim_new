@@ -10,12 +10,13 @@ set wildmenu
 set hlsearch
 exec "nohlsearch"
 set incsearch
-nnoremap <leader>b oimport ipdb;ipdb.set_trace()<esc>
+nnoremap <leader>b oimport ipdb;ipdb.set_trace()<esc> :w<CR>
 map s <nop>
 map S :w<CR>
 map <leader>l $
 map <leader>h 0
 map Q :q<CR>
+map <leader>v :CocCommand snippets.editSnippets<CR>
 map R :source $MYVIMRC<CR>
 map vs :set splitright<CR>:vsplit<CR>
 map sp :set splitbelow<CR>:split<CR>
@@ -26,6 +27,7 @@ map <right> :vertical resize+5<CR>
 map tu :tabe<CR>
 map tn :-tabnext<CR>
 map ti :+tabnext<CR>
+nnoremap <F3> :UndotreeToggle<CR>
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'connorholyday/vim-snazzy'
@@ -37,7 +39,9 @@ Plug 'preservim/nerdcommenter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'voldikss/vim-floaterm'
 Plug 'easymotion/vim-easymotion'
+Plug 'mbbill/undotree'
 call plug#end()
+
 let g:floaterm_width = 0.99
 let g:floaterm_height = 0.99
 let g:EasyMotion_smartcase = 1
@@ -46,7 +50,8 @@ nmap f <Plug>(easymotion-s)
 let g:floaterm_keymap_new    = '<leader>t'
 map <leader>r :FloatermNew ranger<CR> 
 map <leader>g :FloatermNew lazygit<CR> 
-map <leader>d :FloatermNew ipython %<CR> 
+"map <leader>d :FloatermNew ipython %<CR> 
+map <F4> :FloatermNew ipython %<CR> 
 let g:floaterm_keymap_prev   = '<F8>'
 let g:floaterm_keymap_next   = '<F9>'
 let g:floaterm_keymap_toggle = '<leader>w'
